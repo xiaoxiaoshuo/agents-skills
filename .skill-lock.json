@@ -1,0 +1,31 @@
+{
+  "version": 3,
+  "skills": {
+    "tmeet-skill": {
+      "source": "TencentCloud/tencentmeeting-cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/TencentCloud/tencentmeeting-cli.git",
+      "skillPath": "skills/tmeet-skill/SKILL.md",
+      "skillFolderHash": "de696bc237fe4acd0d650c553b08854fb114168d",
+      "installedAt": "2026-08-27T07:28:52.615Z",
+      "updatedAt": "2026-08-27T07:28:52.615Z"
+    },
+    "lark-doc": {
+      "source": "open.feishu.cn",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/.well-known/skills/lark-doc/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-10-23T17:57:46.459Z",
+      "updatedAt": "2026-10-23T18:00:40.183Z"
+    },
+    "lark-shared": {
+      "source": "open.feishu.cn",
+      "sourceType": "well-known",
+      "sourceUrl": "https://open.feishu.cn/.well-known/skills/lark-shared/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-10-23T18:01:33.294Z",
+      "updatedAt": "2026-10-23T18:01:33.294Z"
+    }
+  },
+  "dismissed": {}
+}
