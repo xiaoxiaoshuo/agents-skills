@@ -56,6 +56,39 @@ $EDITOR ~/.agents/skills/my-skill/SKILL.md
 cd ~/.agents && git add -A && git commit -m "add: my-skill" && git push
 ```
 
+## 一键同步：sync.sh
+
+```bash
+cd ~/.agents
+./sync.sh                      # 自动生成带时间戳的提交信息并推送
+./sync.sh -m "add: my-skill"   # 指定提交信息
+./sync.sh --dry-run            # 只看会提交什么，不真正提交
+./sync.sh --no-push            # 只提交到本地
+./sync.sh --force              # 跳过敏感检查 / 允许空提交
+./sync.sh --help
+```
+
+脚本做的事：
+
+1. 无变更时直接退出，不产生空提交
+2. 自动生成提交信息，形如：
+   ```
+   sync: 2026-11-01 00:23:27 +0800
+
+   变更技能: browser-snapshot-timeout
+   文件: 1 个
+   ```
+3. **推送前扫描敏感信息**（`ghp_*` / `sk-*` / `AKIA*` / 私钥 / `password=` 等），命中就中止并回滚暂存 —— 因为本仓库是 public
+4. 推送前自动 `fetch` + `rebase`，避免多机同步的非快进冲突
+5. 网络失败时保留本地提交，恢复后重跑即可
+
+定时自动同步（可选）：
+
+```bash
+# 每天 23:30
+30 23 * * * cd ~/.agents && ./sync.sh >> /tmp/agents-sync.log 2>&1
+```
+
 ## SKILL.md 格式要求
 
 DSH 的解析规则（见 `@deepseek-ai/dsh-skill-filesystem`）：
